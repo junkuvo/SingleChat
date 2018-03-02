@@ -13,7 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.junkuvo.singlechat.R;
 import com.junkuvo.singlechat.adapter.MessageAdapter;
-import com.junkuvo.singlechat.model.Message;
+import com.junkuvo.singlechat.entity.Message;
 import com.junkuvo.singlechat.presenter.MessagePresenter;
 import com.junkuvo.singlechat.presenter.MessagePresenterInterface;
 

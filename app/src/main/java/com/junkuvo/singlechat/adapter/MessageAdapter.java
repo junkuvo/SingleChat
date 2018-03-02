@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.junkuvo.singlechat.R;
-import com.junkuvo.singlechat.model.Message;
+import com.junkuvo.singlechat.entity.Message;
 
 import io.realm.RealmRecyclerViewAdapter;
 import io.realm.RealmResults;

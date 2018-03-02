@@ -1,6 +1,6 @@
 package com.junkuvo.singlechat.repository;
 
-import com.junkuvo.singlechat.model.Message;
+import com.junkuvo.singlechat.entity.Message;
 
 import io.realm.RealmResults;
 

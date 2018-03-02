@@ -1,4 +1,4 @@
-package com.junkuvo.singlechat.model;
+package com.junkuvo.singlechat.entity;
 
 import java.util.Date;
 

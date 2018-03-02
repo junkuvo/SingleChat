@@ -1,6 +1,6 @@
 package com.junkuvo.singlechat.presenter;
 
-import com.junkuvo.singlechat.model.Message;
+import com.junkuvo.singlechat.entity.Message;
 import com.junkuvo.singlechat.repository.MessageRepository;
 import com.junkuvo.singlechat.repository.MessageRepositoryInterface;
 import com.junkuvo.singlechat.view.MainActivity;
