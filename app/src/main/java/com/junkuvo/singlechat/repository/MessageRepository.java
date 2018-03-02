@@ -2,7 +2,7 @@ package com.junkuvo.singlechat.repository;
 
 import android.support.annotation.NonNull;
 
-import com.junkuvo.singlechat.model.Message;
+import com.junkuvo.singlechat.entity.Message;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
