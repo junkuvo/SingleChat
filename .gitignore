@@ -1,0 +1,4 @@
+last-build.bin
+fileHashes.bin
+.gradle/*
+build/*
