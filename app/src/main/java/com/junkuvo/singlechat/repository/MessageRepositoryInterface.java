@@ -12,6 +12,7 @@ public interface MessageRepositoryInterface {
     void getAllMessages(OnGetAllMessageCallback onGetAllMessageCallback);
 
     interface OnGetAllMessageCallback {
+        // TODO Realmに依存している（Adapterも変更が必要）
         void onSuccess(RealmResults<Message> messages);
 
         void onError(String message);
