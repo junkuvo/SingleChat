@@ -2,7 +2,7 @@ package com.junkuvo.singlechat.repository;
 
 import com.junkuvo.singlechat.entity.Message;
 
-import io.realm.RealmResults;
+import java.util.List;
 
 /**
  * リポジトリ側に実装したい機能のメソッドと
@@ -12,8 +12,7 @@ public interface MessageRepositoryInterface {
     void getAllMessages(OnGetAllMessageCallback onGetAllMessageCallback);
 
     interface OnGetAllMessageCallback {
-        // TODO Realmに依存している（Adapterも変更が必要）
-        void onSuccess(RealmResults<Message> messages);
+        void onSuccess(List<Message> messages);
 
         void onError(String message);
     }

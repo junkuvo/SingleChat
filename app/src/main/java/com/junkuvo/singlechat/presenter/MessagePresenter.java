@@ -1,22 +1,35 @@
 package com.junkuvo.singlechat.presenter;
 
+import android.support.annotation.VisibleForTesting;
+
 import com.junkuvo.singlechat.entity.Message;
 import com.junkuvo.singlechat.repository.MessageRepository;
 import com.junkuvo.singlechat.repository.MessageRepositoryInterface;
 import com.junkuvo.singlechat.view.MainActivity;
 
-import io.realm.RealmResults;
+import java.util.List;
 
-public class MessagePresenter implements MessagePresenterInterface {
+public class MessagePresenter implements MessagePresenterInterface.Presenter {
 
     private MainActivity view;
     private MessageRepositoryInterface messageRepository;
-    private MessageRepositoryInterface.OnGetAllMessageCallback onGetAllMessageCallback;
-    private MessageRepositoryInterface.OnAddMessageCallback onAddMessageCallback;
+    @VisibleForTesting
+    MessageRepositoryInterface.OnGetAllMessageCallback onGetAllMessageCallback;
+    @VisibleForTesting
+    MessageRepositoryInterface.OnAddMessageCallback onAddMessageCallback;
 
     public MessagePresenter(MainActivity view) {
         this.view = view;
         this.messageRepository = new MessageRepository();
+    }
+
+    @VisibleForTesting
+    void setMessageRepository(MessageRepositoryInterface messageRepository) {
+        this.messageRepository = messageRepository;
+    }
+
+    public MessageRepositoryInterface getMessageRepository() {
+        return messageRepository;
     }
 
     @Override
@@ -33,7 +46,7 @@ public class MessagePresenter implements MessagePresenterInterface {
     public void subscribeCallbacks() {
         onGetAllMessageCallback = new MessageRepositoryInterface.OnGetAllMessageCallback() {
             @Override
-            public void onSuccess(RealmResults<Message> messages) {
+            public void onSuccess(List<Message> messages) {
                 if (!view.isFinishing()) {
                     view.showMessages(messages);
                 }

@@ -1,7 +1,5 @@
 package com.junkuvo.singlechat.adapter;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
@@ -12,20 +10,14 @@ import android.view.ViewGroup;
 import com.junkuvo.singlechat.R;
 import com.junkuvo.singlechat.entity.Message;
 
-import io.realm.RealmRecyclerViewAdapter;
-import io.realm.RealmResults;
+import java.util.List;
 
-public class MessageAdapter extends RealmRecyclerViewAdapter {
+public class MessageAdapter extends RecyclerView.Adapter {
 
-    private RealmResults<Message> messages;
+    private List<Message> messages;
 
-    public MessageAdapter(@NonNull Context context, @Nullable RealmResults<Message> data, boolean autoUpdate) {
-        super(context, data, autoUpdate);
+    public MessageAdapter(@Nullable List<Message> data) {
         messages = data;
-    }
-
-    public MessageAdapter(@NonNull Context context, boolean autoUpdate) {
-        super(context, null, autoUpdate);
     }
 
     @Override
@@ -39,6 +31,11 @@ public class MessageAdapter extends RealmRecyclerViewAdapter {
         if (messages != null && messages.get(position) != null) {
             ((MessageViewHolder) holder).tvBody.setText(messages.get(position).getBody());
         }
+    }
+
+    @Override
+    public int getItemCount() {
+        return messages.size();
     }
 
     public class MessageViewHolder extends RecyclerView.ViewHolder {

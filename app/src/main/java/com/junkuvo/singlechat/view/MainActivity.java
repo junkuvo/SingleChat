@@ -18,10 +18,10 @@ import com.junkuvo.singlechat.presenter.MessagePresenter;
 import com.junkuvo.singlechat.presenter.MessagePresenterInterface;
 
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements MessagePresenterInterface.View {
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements MessagePresenterI
     /**
      * このPresenterが画像とか動画とかも吸収できるようにしたい
      */
-    private MessagePresenterInterface messagePresenter;
+    private MessagePresenterInterface.Presenter messagePresenter;
 
     private Message message = new Message();
 
@@ -67,9 +67,9 @@ public class MainActivity extends AppCompatActivity implements MessagePresenterI
     }
 
     @Override
-    public void showMessages(RealmResults<Message> messages) {
+    public void showMessages(List<Message> messages) {
         if (messageAdapter == null) {
-            messageAdapter = new MessageAdapter(this, messages, true);
+            messageAdapter = new MessageAdapter(messages);
             recyclerView.setAdapter(messageAdapter);
         } else {
             // add messages of next page

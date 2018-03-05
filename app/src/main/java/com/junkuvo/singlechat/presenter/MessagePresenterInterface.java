@@ -2,19 +2,22 @@ package com.junkuvo.singlechat.presenter;
 
 import com.junkuvo.singlechat.entity.Message;
 
-import io.realm.RealmResults;
+import java.util.List;
 
 public interface MessagePresenterInterface {
-    void getAllMessage();
+    interface Presenter {
 
-    void addMessage(Message message);
+        void getAllMessage();
 
-    void subscribeCallbacks();
+        void addMessage(Message message);
 
-    void unSubscribeCallbacks();
+        void subscribeCallbacks();
+
+        void unSubscribeCallbacks();
+    }
 
     interface View {
-        void showMessages(RealmResults<Message> messages);
+        void showMessages(List<Message> messages);
 
         void showAddedMessage();
     }
