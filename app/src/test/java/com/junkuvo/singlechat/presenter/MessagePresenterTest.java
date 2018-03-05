@@ -36,7 +36,6 @@ public class MessagePresenterTest {
         messagePresenter.subscribeCallbacks();
         // TODO repositoryをDIしたらいいのでは？？
         messagePresenter.setMessageRepository(messageRepository);
-        messageRepository = messagePresenter.getMessageRepository();
         message = new Message();
         message.setId(ID);
         message.setBody(BODY);

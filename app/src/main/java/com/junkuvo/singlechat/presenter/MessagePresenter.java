@@ -28,10 +28,6 @@ public class MessagePresenter implements MessagePresenterInterface.Presenter {
         this.messageRepository = messageRepository;
     }
 
-    public MessageRepositoryInterface getMessageRepository() {
-        return messageRepository;
-    }
-
     @Override
     public void getAllMessage() {
         messageRepository.getAllMessages(onGetAllMessageCallback);
