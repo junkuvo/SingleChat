@@ -34,6 +34,7 @@ public class MessagePresenterTest {
         messageRepository = mock(MessageRepository.class);
         messagePresenter = new MessagePresenter(mainActivity);
         messagePresenter.subscribeCallbacks();
+        // TODO repositoryをDIしたらいいのでは？？
         messagePresenter.setMessageRepository(messageRepository);
         messageRepository = messagePresenter.getMessageRepository();
         message = new Message();
@@ -64,13 +65,4 @@ public class MessagePresenterTest {
         verify(messageRepository).addMessage(message, messagePresenter.onAddMessageCallback);
 //        verify(mainActivity).showAddedMessage();
     }
-
-    @Test
-    public void subscribeCallbacks() throws Exception {
-    }
-
-    @Test
-    public void unSubscribeCallbacks() throws Exception {
-    }
-
 }
