@@ -56,13 +56,15 @@ public class MessagePresenterTest {
     public void getAllMessage() throws Exception {
         messagePresenter.getAllMessage();
         verify(messageRepository).getAllMessages(messagePresenter.onGetAllMessageCallback);
-//        verify(mainActivity).showMessages(ArgumentMatchers.<Message>anyList());
+        messagePresenter.onGetAllMessageCallback.onSuccess(MESSAGES);
+        verify(mainActivity).showMessages(MESSAGES);
     }
 
     @Test
     public void addMessage() throws Exception {
         messagePresenter.addMessage(message);
         verify(messageRepository).addMessage(message, messagePresenter.onAddMessageCallback);
-//        verify(mainActivity).showAddedMessage();
+        messagePresenter.onAddMessageCallback.onSuccess();
+        verify(mainActivity).showAddedMessage();
     }
 }
